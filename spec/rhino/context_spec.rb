@@ -29,11 +29,11 @@ describe Rhino::Context do
       Context.open(:sealed => true) do |cxt|
         lambda {
           cxt.eval("Object.foop = 'blort'")            
-        }.should raise_error(Rhino::RhinoError)
+        }.should raise_error(Rhino::JavascriptError)
         
         lambda {
           cxt.eval("Object.prototype.toString = function() {}")            
-        }.should raise_error(Rhino::RhinoError)          
+        }.should raise_error(Rhino::JavascriptError)          
       end
     end
     
